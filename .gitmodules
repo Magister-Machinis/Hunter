@@ -1,0 +1,3 @@
+[submodule "Searcher"]
+	path = Searcher
+	url = https://github.com/Magister-Machinis/Searcher.git
