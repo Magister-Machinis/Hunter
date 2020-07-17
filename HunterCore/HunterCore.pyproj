@@ -5,13 +5,12 @@
     <ProjectGuid>06994d95-b88d-439c-91c8-0c61b75c54c0</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>HunterCore.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>Linker;Slicer</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>HunterCore</Name>
     <RootNamespace>HunterCore</RootNamespace>
-    <InterpreterId>Global|PythonCore|3.7</InterpreterId>
+    <InterpreterId>MSBuild|HunterEnv|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,9 +34,6 @@
     <Compile Include="Slicer\__init__.py" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="Global|PythonCore|3.7" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Searcher\Searcher\Searcher.pyproj">
       <Name>Searcher</Name>
       <Project>{8e0ffa10-7b94-4a81-ad73-7c9413714bfa}</Project>
@@ -50,6 +46,17 @@
     <Folder Include="Output\" />
     <Folder Include="Slicer\" />
     <Folder Include="Linker\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="HunterEnv\">
+      <Id>HunterEnv</Id>
+      <Version>3.7</Version>
+      <Description>HunterEnv (Python 3.7 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
