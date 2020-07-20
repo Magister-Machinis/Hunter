@@ -31,6 +31,9 @@
     <Compile Include="Slicer\Slicer.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Slicer\SlicerTest.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Slicer\__init__.py" />
   </ItemGroup>
   <ItemGroup>

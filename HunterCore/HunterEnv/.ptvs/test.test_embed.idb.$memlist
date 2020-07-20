@@ -1,0 +1,16 @@
+sys
+re
+os
+EmbeddingTests
+__builtins__
+__file__
+__package__
+support
+subprocess
+namedtuple
+EmbeddingTestsMixin
+InitConfigTests
+__name__
+__cached__
+unittest
+__spec__
