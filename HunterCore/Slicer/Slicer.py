@@ -9,7 +9,8 @@ from multiprocessing import Pool
 #    specific: whether to run general match or specific match
 #}
 
-def slicing(file, rule,intermediatepath):
+
+def slicing(file, rule):
     flag = False
     searchpattern = Searcher.searcher(rule['rule'])
     with open(file,"r") as f:
@@ -20,8 +21,9 @@ def slicing(file, rule,intermediatepath):
         else:
             if searchpattern.IsMatch(data):
                 flag=True
-        if flag== True:
-            return [intermediatepath, file.name, [x for x in slicebykeys(rule['key'],data)]]
+        if flag== True:            
+             for x in slicebykeys(rule['key'],data):
+                yield x
 
 def slicebykeys(key, data):
     for datakey in data.keys():
@@ -44,11 +46,12 @@ def slicebykeys(key, data):
                     for result in slicebykeys(key, data[datakey][itemkey]):
                         yield result
 
-def slicewriter(results):
+def slicewriter(file, rule,intermediatepath):
     count = 0
-    for result in results[2]:
-        with open(os.path.join(results[0], str(count)+results[1]),'w') as writer:
+    for result in slicing(file, rule):
+        with open(os.path.join(intermediatepath, str(count)+file),'w') as writer:
             writer.write(result)
+        count= count+1
 
 def Slicer(rules=[],poolsize=8):
     inputpath = os.path.abspath("../Input")
@@ -57,5 +60,5 @@ def Slicer(rules=[],poolsize=8):
         for file in os.listdir(inputpath):
             if file.endswith('.json'):
                 for rule in rules:
-                    pool.apply_async(slicing, args=(file, rule, intermediatepath), callback=slicewriter)
+                    pool.apply_async(slicewriter, args=(file, rule, intermediatepath))
         
