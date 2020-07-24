@@ -10,7 +10,7 @@
     <OutputPath>.</OutputPath>
     <Name>HunterCore</Name>
     <RootNamespace>HunterCore</RootNamespace>
-    <InterpreterId>MSBuild|HunterEnv|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>Global|PythonCore|3.7</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,15 +51,7 @@
     <Folder Include="Linker\" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="HunterEnv\">
-      <Id>HunterEnv</Id>
-      <Version>3.7</Version>
-      <Description>HunterEnv (Python 3.7 (64-bit))</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X64</Architecture>
-    </Interpreter>
+    <InterpreterReference Include="Global|PythonCore|3.7" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
