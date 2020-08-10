@@ -5,7 +5,7 @@
     <ProjectGuid>06994d95-b88d-439c-91c8-0c61b75c54c0</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>HunterCore.py</StartupFile>
-    <SearchPath>Linker;Slicer</SearchPath>
+    <SearchPath>Linker;Slicer;..\Searcher\Searcher\Searcher</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>HunterCore</Name>
